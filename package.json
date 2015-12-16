@@ -1,6 +1,6 @@
 {
   "name": "oauth-request-promise",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "OAuth 1.0a via request... with promises!",
   "main": "index.js",
   "scripts": {

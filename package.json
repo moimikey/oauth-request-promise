@@ -1,14 +1,14 @@
 {
-  "name": "oauth-request",
-  "version": "0.0.1",
-  "description": "OAuth 1.0a via request",
+  "name": "oauth-request-promise",
+  "version": "0.1.0",
+  "description": "OAuth 1.0a via request... with promises!",
   "main": "index.js",
   "scripts": {
     "test": "make test"
   },
   "repository": {
     "type": "git",
-    "url": "https://ddo@github.com/ddo/oauth-request.git"
+    "url": "https://moimikey@github.com/moimikey/oauth-request.git"
   },
   "keywords": [
     "oauth",
@@ -18,14 +18,15 @@
     "signature",
     "nonce",
     "consumer",
-    "request"
+    "request",
+    "promise"
   ],
-  "author": "ddo <joeddo89@gmail.com> (http://ddo.me/)",
+  "author": "Michael Hertzberg <mshertzberg@gmail.com> (http://hertzber.gs), ddo <joeddo89@gmail.com> (http://ddo.me/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ddo/oauth-request/issues"
+    "url": "https://github.com/moimikey/oauth-request/issues"
   },
-  "homepage": "https://github.com/ddo/oauth-request",
+  "homepage": "https://github.com/moimikey/oauth-request",
   "dependencies": {
     "debug": "~2.2.0",
     "oauth-1.0a": "~1.0.1",

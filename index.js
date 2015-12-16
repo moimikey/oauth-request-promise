@@ -1,6 +1,6 @@
 var qs = require('querystring');
 
-var debug   = require('debug')('oauth-request');
+var debug   = require('debug')('oauth-request-promise');
 var request = require('request-promise');
 var OAuth   = require('oauth-1.0a');
 
@@ -20,7 +20,7 @@ function OAuthRequest(opt) {
 
 /**
  * debug
- * 
+ *
  * @api private
  */
 OAuthRequest.prototype._log = debug;
@@ -52,7 +52,7 @@ OAuthRequest.prototype._validate = function(opt) {
     return opt;
 };
 
-OAuthRequest.prototype.get = function(opt, callback) {
+OAuthRequest.prototype.get = function(opt) {
     opt = this._validate(opt);
 
     var request_data = {
@@ -65,13 +65,9 @@ OAuthRequest.prototype.get = function(opt, callback) {
     opt.qs = this.oauth.authorize(request_data, this.token);
     opt.method = request_data.method;
 
-    if(!callback) {
-        return request(opt);
-    }
-
     this._log('#get', opt);
 
-    return request(opt, callback);
+    return request(opt);
 };
 
 OAuthRequest.prototype.post = function(opt, callback) {
@@ -107,9 +103,5 @@ OAuthRequest.prototype.post = function(opt, callback) {
 
     this._log('#post', opt);
 
-    if(!callback) {
-        return request(opt);
-    }
-
-    return request(opt, callback);
+    return request(opt);
 };

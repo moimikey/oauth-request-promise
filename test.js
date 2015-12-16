@@ -16,12 +16,11 @@ describe("oauth-request", function() {
 
     describe("#get tweets", function() {
         it("should be return 20 tweets", function(done) {
-            
+
             twitter.get({
                 url: 'https://api.twitter.com/1.1/statuses/user_timeline.json',
                 json: true
-            }, function(err, res, tweets) {
-                
+            }).then(function(tweets) {
                 expect(tweets).to.be.an('array').that.have.length(20);
                 expect(tweets[0]).to.have.property('id');
                 expect(tweets[0]).to.have.property('created_at');
@@ -66,15 +65,14 @@ describe("oauth-request", function() {
 
     describe("#get 5 tweets", function() {
         it("should be return 5 tweets", function(done) {
-            
+
             twitter.get({
                 url: 'https://api.twitter.com/1.1/statuses/user_timeline.json',
                 qs: {
                     count: 5
                 },
                 json: true
-            }, function(err, res, tweets) {
-                
+            }).then(function(tweets) {
                 expect(tweets).to.be.an('array').that.have.length(5);
                 expect(tweets[0]).to.have.property('id');
                 expect(tweets[0]).to.have.property('created_at');
@@ -88,14 +86,14 @@ describe("oauth-request", function() {
 
     describe("#post new tweet", function() {
         it("should create a new tweet", function(done) {
-            
+
             twitter.post({
                 url: 'https://api.twitter.com/1.1/statuses/update.json',
                 form: {
-                   status: message 
+                   status: message
                 },
                 json: true
-            }, function(err, res, tweet) {
+            }).then(function(tweet) {
                 tweet_id = tweet.id_str;
 
                 expect(tweet).to.have.property('id');
@@ -108,11 +106,10 @@ describe("oauth-request", function() {
 
     describe("#delete tweet", function() {
         it("should delete that new tweet", function(done) {
-            
             twitter.post({
                 url: 'https://api.twitter.com/1.1/statuses/destroy/' + tweet_id + '.json',
                 json: true
-            }, function(err, res, tweet) {
+            }).then(function(tweet) {
                 expect(tweet).to.have.property('id');
                 expect(tweet).to.have.property('created_at');
                 expect(tweet).to.have.property('text', message);

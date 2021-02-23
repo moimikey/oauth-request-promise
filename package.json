@@ -30,7 +30,7 @@
   "dependencies": {
     "debug": "~2.2.0",
     "oauth-1.0a": "~1.0.1",
-    "request-promise": "~1.0.2"
+    "request-promise": "~4.2.6"
   },
   "devDependencies": {
     "chai": "~3.4.1",
